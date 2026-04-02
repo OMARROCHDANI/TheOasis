@@ -22,16 +22,13 @@ function App() {
       <StarParticles />
       <Navbar />
       <Hero />
-      <GalleryDemo />
       <Marquee />
       <About />
+      <GalleryDemo />
       <SectionDivider />
       <Stack />
       <SectionDivider />
       <Projects />
-      <SectionDivider />
-
-
       <SectionDivider />
       <TerminalCTA />
       <Footer />

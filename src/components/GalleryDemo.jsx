@@ -46,7 +46,7 @@ export default function GalleryDemo() {
             />
             {/* Title Overlay with font-press-start, white color and stark inversing effect */}
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-center px-3 mix-blend-difference z-20">
-                <h1 className="font-press-start text-3xl md:text-5xl lg:text-8xl tracking-tighter text-white">
+                <h1 className="font-press-start text-3xl md:text-5xl lg:text-8xl tracking-tighter text-glow-gold glow-text">
                     PIXEL<br />ARCHIVE
                 </h1>
             </div>

@@ -131,12 +131,54 @@
   animation: breathing 5s ease-in-out infinite alternate;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: var(--font-vt323);
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-desert-sand) rgba(0, 0, 0, 0);
   background-color: var(--color-dark-bg);
   color: var(--color-desert-sand);
+  
+  /* Modern CSS scrollbar properties */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-desert-sand) var(--color-dark-bg);
+}
+
+/* Custom Scrollbar for Chrome, Safari and Edge */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+  border-left: 1px solid rgba(230, 161, 90, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--color-desert-sand),
+    var(--color-sunset-orange),
+    var(--color-oasis-blue)
+  );
+  border-radius: 2px;
+  border: 2px solid var(--color-dark-bg);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    var(--color-glow-gold),
+    var(--color-sunset-orange)
+  );
+  border: 1px solid var(--color-dark-bg);
+  box-shadow: 0 0 15px var(--color-glow-gold);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-dark-bg);
 }
 
 @layer base {
