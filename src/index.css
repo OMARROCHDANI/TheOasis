@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --font-vt323: 'VT323', monospace;
+  --font-press-start: 'Press Start 2P', monospace;
+
+  --color-desert-sand: #E6A15A;
+  --color-sunset-orange: #FF8C42;
+  --color-oasis-blue: #3CC7D6;
+  --color-palm-green: #2E8B57;
+  --color-sky-purple: #7A5CFF;
+  --color-glow-gold: #FFD56B;
+  --color-dark-bg: #0A0A0A;
+
+  --animate-water-ripple: water-ripple 4s ease-in-out infinite;
+  --animate-heat-wave: heat-wave 5s infinite;
+  --animate-palm-sway: palm-sway 6s ease-in-out infinite alternate;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite alternate;
+  --animate-particle-drift: particle-drift 10s linear infinite;
+  --animate-fade-reveal: fade-reveal 1s ease-out forwards;
+  --animate-light-shift: light-shift 8s ease-in-out infinite alternate;
+  --animate-progress-fill: progress-fill 2s ease-out forwards;
+  --animate-breathing: breathing 5s ease-in-out infinite alternate;
+}
+
+@keyframes water-ripple {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes heat-wave {
+  0% { transform: translateY(0) scale(1); filter: blur(0px); }
+  50% { transform: translateY(-2px) scale(1.01); filter: blur(1px); }
+  100% { transform: translateY(0) scale(1); filter: blur(0px); }
+}
+
+@keyframes palm-sway {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+@keyframes glow-pulse {
+  0% { text-shadow: 0 0 5px var(--color-glow-gold); }
+  100% { text-shadow: 0 0 20px var(--color-glow-gold); }
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+}
+
+@keyframes fade-reveal {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes light-shift {
+  0% { background: linear-gradient(to bottom, var(--color-sunset-orange), var(--color-dark-bg)); }
+  100% { background: linear-gradient(to bottom, var(--color-sky-purple), var(--color-dark-bg)); }
+}
+
+@keyframes progress-fill {
+  0% { width: 0%; }
+  100% { width: var(--progress-target, 100%); }
+}
+
+@keyframes breathing {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+@utility oasis-overlay {
+  background: linear-gradient(to bottom, rgba(122, 92, 255, 0.2), rgba(10, 10, 10, 0.5));
+}
+
+@utility heat-distortion {
+  animation: heat-wave 5s infinite;
+  backdrop-filter: blur(1px);
+}
+
+@utility pixel-border-soft {
+  border: 2px solid var(--color-glow-gold);
+  box-shadow: inset 0 0 10px rgba(255, 213, 107, 0.2), 0 0 10px rgba(255, 213, 107, 0.2);
+}
+
+@utility glow-text {
+  text-shadow: 0 0 10px var(--color-glow-gold);
+  animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+@utility ambient-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@utility retro-grid {
+  background-image: 
+    linear-gradient(rgba(230, 161, 90, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 161, 90, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@utility section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-desert-sand), var(--color-oasis-blue), var(--color-sky-purple), transparent);
+  width: 100%;
+  opacity: 0.8;
+}
+
+@utility progress-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 8px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@utility progress-bar-fill {
+  background-color: var(--color-glow-gold);
+  height: 100%;
+  animation: progress-fill 2s ease-out forwards;
+  box-shadow: 0 0 10px var(--color-glow-gold);
+}
+
+@utility breathing {
+  animation: breathing 5s ease-in-out infinite alternate;
+}
+
+body {
+  font-family: var(--font-vt323);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-desert-sand) rgba(0, 0, 0, 0);
+  background-color: var(--color-dark-bg);
+  color: var(--color-desert-sand);
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-press-start);
+  }
+}
